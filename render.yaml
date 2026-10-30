@@ -1,0 +1,45 @@
+# Render Blueprint: New > Blueprint > pick this repo. SQLite needs the persistent disk below (Starter plan or above).
+services:
+  - type: web
+    name: pulse-shift-lms
+    runtime: node
+    plan: starter
+    region: frankfurt
+    buildCommand: npm ci --omit=dev
+    startCommand: npm start
+    healthCheckPath: /healthz
+    disk:
+      name: pulse-shift-lms-data
+      mountPath: /var/data
+      sizeGB: 1
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+      - key: DB_FILE
+        value: /var/data/pulse-shift-lms.db
+      - key: COOKIE_SECURE
+        value: "true"
+      - key: JWT_SECRET
+        generateValue: true
+      - key: OWNER_NAME
+        value: Navjot Kaur
+      - key: OWNER_EMAIL
+        value: owner@pulseshiftmedia.com
+      - key: OWNER_PASSWORD
+        sync: false
+      - key: SEED_DEMO
+        value: "true"
+      - key: SHOW_DEMO_LOGINS
+        value: "true"
+      - key: TZ
+        value: Asia/Dubai
+      - key: RAZORPAY_KEY_ID
+        sync: false
+      - key: RAZORPAY_KEY_SECRET
+        sync: false
+      - key: RAZORPAY_WEBHOOK_SECRET
+        sync: false
+      - key: RAZORPAY_PLAN_PRO
+        sync: false
+      - key: RAZORPAY_PLAN_BUSINESS
+        sync: false

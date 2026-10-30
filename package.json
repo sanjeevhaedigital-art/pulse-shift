@@ -1,0 +1,26 @@
+{
+  "name": "pulse-shift-lms",
+  "version": "1.0.0",
+  "description": "Pulse Shift LMS: multi-company Lead Management SaaS for Pulse Shift Media, Dubai (Node.js + Express + SQLite)",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node --no-warnings src/seed.js && node --no-warnings src/server.js",
+    "server": "node --no-warnings src/server.js",
+    "dev": "node --no-warnings --watch src/server.js",
+    "seed": "node --no-warnings src/seed.js"
+  },
+  "license": "UNLICENSED",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "cookie-parser": "^1.4.7",
+    "express": "^5.3.0",
+    "jsonwebtoken": "^9.0.3"
+  },
+  "private": true,
+  "engines": {
+    "node": ">=22.13"
+  },
+  "optionalDependencies": {
+    "better-sqlite3": "^13.0.3"
+  }
+}
